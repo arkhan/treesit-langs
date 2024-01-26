@@ -161,7 +161,7 @@
 
 (escape_sequence) @escape
 
-"\"" @string
+;; "\"" @string
 
 (interpolation
  "{" @punctuation.special
