@@ -16,7 +16,14 @@ try {
       } else {
         $version = "`"$version`""
       }
-      $code = "(treesit-langs-create-bundle nil $version)"
+      $code = "(treesit-langs-create-bundle nil nil $version)"
+    }
+    'changed' {
+      $base = $target
+      if (!$base) {
+        $base = "origin/master"
+      }
+      $code = "(treesit-langs-compile-changed-or-all \`"$base\`")"
     }
     default { $code = "(treesit-langs-compile '$lang)" }
   }
